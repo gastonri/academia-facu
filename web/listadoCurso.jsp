@@ -15,32 +15,49 @@
         <link href="style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Listado de cursos</h1>
-        <div>
-            <a href="cargarCurso.html">Carga de curso</a>
+    <legend class="display-6">Carga de curso:</legend>
+
+    <div class="container-fluid" style="margin-left: 30%;">
+        <div class="row-fluid">
+            <form class="form-horizontal" method="POST" action="cargarCurso">
+                <div class="row pb-3 inline-block">
+                    <div class="col-md-2">
+                        <input class="form-control" type="number" id="idCurso" name="idCurso" placeholder="Id"/>
+                    </div>
+                    <div>
+                        <input class="form-control" type="text" id="descripcionCurso" name="descripcionCurso" placeholder="Descripción"/>
+                    </div>
+                    <div style="padding-left: 15px;">
+                        <button class="btn btn-primary" type="submit">Guardar</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div>
-            <table>
-                <thead>
+    </div>
+
+    <legend class="display-6">Listado de cursos</legend>
+    <div class="d-flex justify-content-center">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="width: 5%">Id</th>
+                    <th>Descripción</th>
+                    <th style="width: 15%">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${lista}" var="lc">
                     <tr>
-                        <th>Id</th>
-                        <th>Descripción</th>
-                        <th>Acciones</th>
+                        <td>${lc.id}</td>
+                        <td>${lc.descripcion}</td>
+                        <td>
+                            <a class="btn mini btn-primary btn-sm" href="editarCurso?id=${lc.id}">Modificar</a>
+                            <a class="btn mini btn-danger btn-sm" href="eliminarCurso?id=${lc.id}">Eliminar</a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${lista}" var="lc">
-                        <tr>
-                            <td>${lc.id}</td>
-                            <td>${lc.descripcion}</td>
-                            <td>
-                                <a href="editarCurso?id=${lc.id}">Modificar</a>
-                                <a href="eliminarCurso?id=${lc.id}">Eliminar</a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
-    </body>
+                </c:forEach>
+            </tbody>
+        </table>
+    </div>
+</body>
 </html>

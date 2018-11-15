@@ -69,7 +69,7 @@ public class CargarCursoServlet extends HttpServlet {
         CursoController controlador = new CursoController();
         System.out.println(curso.getDescripcion());
         controlador.agregarCurso(curso);
-        response.sendRedirect("/Academia/listarCursos");
+        response.sendRedirect("listarCursos");
     }
 
     /**

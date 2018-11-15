@@ -79,7 +79,7 @@ public class CargarAlumnoServlet extends HttpServlet {
         alumno.setMail(email);
         AlumnoController controlador = new AlumnoController();
         controlador.agregarAlumno(alumno);
-        response.sendRedirect("/Academia/listarAlumnos");
+        response.sendRedirect("listarAlumnos");
     }
 
     /**

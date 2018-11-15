@@ -14,18 +14,23 @@
         <link href="style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <form method="POST" action="cargarCurso">
-            <div>
-                <label>Id:</label>
-                <input type="number" id="idCurso" name="idCurso"/>
+        <div class="container-fluid" style="margin-left: 30%;">
+            <div class="row-fluid">
+                <legend class="display-6">Carga de curso:</legend>
+                <form class="form-horizontal" method="POST" action="cargarCurso">
+                    <div class="row pb-3 inline-block">
+                        <div class="col-md-2">
+                            <input type="number" id="idCurso" name="idCurso" placeholder="id"/>
+                        </div>
+                        <div>
+                            <input type="text" id="descripcionCurso" name="descripcionCurso" placeholder="Descripción"/>
+                        </div>
+                        <div>
+                            <input type="submit" value="Guardar" />
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div>
-                <label>Descripción:</label>
-                <input type="text" id="descripcionCurso" name="descripcionCurso"/>
-            </div>
-            <div>
-                <input type="submit" value="Guardar" />
-            </div>
-        </form>
+        </div>
     </body>
 </html>

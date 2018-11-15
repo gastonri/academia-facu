@@ -14,22 +14,22 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Reporte curso seleccionado!</h1>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Legajo</th>
-                        <th>Nombre del alumno</th>
-                        <th>Apellido del alumno</th>
-                        <th>Nota</th>
-                        <th>Aprobado</th>
-                        <th>Descripción</th>
-                        <th>Nombre</th>
-                    </tr>
-                </thead>
-                <tbody>
+    <legend class="display-6">Reporte de alumnos desaprobados</legend>
+    <div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Legajo</th>
+                    <th>Nombre del alumno</th>
+                    <th>Apellido del alumno</th>
+                    <th>Nota</th>
+                    <th>Aprobado</th>
+                    <th>Descripción</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
                 <c:forEach items="${lista}" var="al">
                     <tr>
                         <td>${al.id}</td>
@@ -42,8 +42,8 @@
                         <td>${al.nombre}</td>
                     </tr>
                 </c:forEach>
-                </tbody>
-            </table>
-        </div>
-    </body>
+            </tbody>
+        </table>
+    </div>
+</body>
 </html>

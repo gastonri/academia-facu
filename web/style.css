@@ -14,19 +14,20 @@ th {
     margin-top: 20px;
 }
 
-label {
-    font-weight: bold;
+.centered-cell {
+    text-align: center;
 }
 
-/*Para el jsp header. Es la navbar*/
-/* Navbar container */
-.navbar {
+
+/*Para el jsp header. Es la navbar
+ Navbar container */
+/*.navbar {
     overflow: hidden;
     background-color: #333;
     font-family: Arial;
 }
 
-/* Links dentro del navbar */
+ Links dentro del navbar 
 .navbar a {
     float: left;
     font-size: 16px;
@@ -36,13 +37,13 @@ label {
     text-decoration: none;
 }
 
-/* Para la clase dropdown que se les da a los divs de dentro del navbar */
+ Para la clase dropdown que se les da a los divs de dentro del navbar 
 .dropdown {
     float: left;
     overflow: hidden;
 }
 
-/* Boton dropwdown */
+ Boton dropwdown 
 .dropdown .dropbtn {
     font-size: 16px; 
     border: none;
@@ -52,12 +53,12 @@ label {
     background-color: inherit;
 }
 
-/* Muestra en rojo el elemento que tenga hover */
+ Muestra en rojo el elemento que tenga hover 
 .navbar a:hover, .dropdown:hover .dropbtn {
     background-color: red;
 }
 
-/* Contenido del dropdown que esta oculto por defecto */
+ Contenido del dropdown que esta oculto por defecto 
 .dropdown-content {
     display: none;
     position: absolute;
@@ -67,7 +68,7 @@ label {
     z-index: 1;
 }
 
-/* Links dentro del dropdown */
+ Links dentro del dropdown 
 .dropdown-content a {
     float: none;
     color: black;
@@ -77,12 +78,12 @@ label {
     text-align: left;
 }
 
-/* Muestra en gris el elemento que tenga hover dentro del dropdown*/
+ Muestra en gris el elemento que tenga hover dentro del dropdown
 .dropdown-content a:hover {
     background-color: #ddd;
 }
 
-/* dropdown con hover */
+ dropdown con hover 
 .dropdown:hover .dropdown-content {
     display: block;
-}
+}*/

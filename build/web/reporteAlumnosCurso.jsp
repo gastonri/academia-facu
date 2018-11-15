@@ -17,58 +17,58 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Reporte curso seleccionado!</h1>
-        <div>
-            <form name="cursoSeleccionado" method="post" action="listarCursos">
-                <div>
-                    <select name="idCursoSelect">
-                        <option>Seleccione</option>
-                        <%
-                            CursoController conCur = new CursoController();
-                            ArrayList cursos = conCur.consultarCursos();
-                            for (Object curso : cursos) {
-                                Curso cur = (Curso) curso;
-                        %>                    
-                        <option value="<%= cur.getId()%>"><%= cur.getDescripcion()%></option>
-                        <% }%>
-                    </select>
-                </div>
-                <input type="submit" value="Consultar"/>
-            </form>
-        </div>
-        <div>
-            <table>
-                <thead>
+    <legend class="display-6">Reporte de alumnos por curso</legend>
+    <div>
+        <form name="cursoSeleccionado" method="post" action="listarCursos">
+            <div>
+                <select name="idCursoSelect">
+                    <option>Seleccione</option>
+                    <%
+                        CursoController conCur = new CursoController();
+                        ArrayList cursos = conCur.consultarCursos();
+                        for (Object curso : cursos) {
+                            Curso cur = (Curso) curso;
+                    %>                    
+                    <option value="<%= cur.getId()%>"><%= cur.getDescripcion()%></option>
+                    <% }%>
+                </select>
+            </div>
+            <input type="submit" value="Consultar"/>
+        </form>
+    </div>
+    <div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <!--id, c.descripcion, a.legajo, a.nombre, a.apellido, a.dni, a.direccion, a.telefono, a.mail-->
+                    <th>Id</th>
+                    <th>Descripción</th>
+                    <th>Legajo</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Dni</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${lista}" var="al">
                     <tr>
-                        <!--id, c.descripcion, a.legajo, a.nombre, a.apellido, a.dni, a.direccion, a.telefono, a.mail-->
-                        <th>Id</th>
-                        <th>Descripción</th>
-                        <th>Legajo</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Dni</th>
-                        <th>Dirección</th>
-                        <th>Teléfono</th>
-                        <th>Email</th>
+                        <td>${al.id}</td>
+                        <td>${al.descripcion}</td>
+                        <td>${al.legajo}</td>
+                        <td>${al.nombre}</td>
+                        <td>${al.apellido}</td>
+                        <td>${al.dni}</td>
+                        <td>${al.direccion}</td>
+                        <td>${al.telefono}</td>
+                        <td>${al.mail}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${lista}" var="al">
-                        <tr>
-                            <td>${al.id}</td>
-                            <td>${al.descripcion}</td>
-                            <td>${al.legajo}</td>
-                            <td>${al.nombre}</td>
-                            <td>${al.apellido}</td>
-                            <td>${al.dni}</td>
-                            <td>${al.direccion}</td>
-                            <td>${al.telefono}</td>
-                            <td>${al.mail}</td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
+                </c:forEach>
+            </tbody>
+        </table>
+    </div>
 
-    </body>
+</body>
 </html>

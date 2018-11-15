@@ -15,35 +15,36 @@
         <link href="style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Listado de programas habilitados para descargan</h1>
-<!--        <div>
-            <a href="cargarCurso.html">Carga de curso</a>
-        </div>-->
+    <legend class="display-6">Listado de programas habilitados para descargan</legend>
+        <!--        <div>
+                    <a href="cargarCurso.html">Carga de curso</a>
+                </div>-->
         <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Alumno creador</th>
-                        <th>Nombre de la aplicación</th>
-                        <th>Tipo de aplicacion</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${lista}" var="pr">
+            <div class="d-flex justify-content-center">
+                <table class="table table-striped table-bordered">
+                    <thead class="thead-dark">
                         <tr>
-                            <td>${pr.id}</td>
-                            <td>${pr.idAlumno} - ${pr.apellidoAlumno}, ${pr.nombreAlumno}</td>
-                            <td>${pr.nombre}</td>
-                            <td>${pr.tipoPrograma}</td>
-<!--                            <td>
-                                <a href="editarCurso?id=${lc.id}">Modificar</a>
-                                <a href="eliminarCurso?id=${lc.id}">Eliminar</a>
-                            </td>-->
+                            <th>Id</th>
+                            <th>Alumno creador</th>
+                            <th>Nombre de la aplicación</th>
+                            <th>Tipo de aplicacion</th>
                         </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${lista}" var="pr">
+                            <tr>
+                                <td>${pr.id}</td>
+                                <td>${pr.idAlumno} - ${pr.apellidoAlumno}, ${pr.nombreAlumno}</td>
+                                <td>${pr.nombre}</td>
+                                <td>${pr.tipoPrograma}</td>
+                                <!--                            <td>
+                                                                <a href="editarCurso?id=${lc.id}">Modificar</a>
+                                                                <a href="eliminarCurso?id=${lc.id}">Eliminar</a>
+                                                            </td>-->
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
     </body>
 </html>
