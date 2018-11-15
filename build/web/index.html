@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Academia web</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="#news">News</a>
+            <div class="dropdown">
+                <button class="dropbtn">Gestión de cursos
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="listarCursos">Listar cursos</a>
+                    <a href="cargarCurso.jsp">Alta de curso</a>
+                </div>
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Gestión de alumnos
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="listarAlumnos">Listar alumnos</a>
+                    <a href="cargarAlumno.jsp">Alta de alumno</a>
+                </div>
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Gestión de programas
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="listarProgramasHabilitados">Listar programas</a>
+                    <a href="formularioProgramaRegistro.jsp">Alta de programa</a>
+                </div>
+            </div> 
+            <a href="formularioExamenRegistro.jsp">Cargar exámen</a>
+        </div>
+        <h1>Cargas</h1>
+        <hr>
+        <div>
+            <a href="cargarCurso.html">Carga de curso</a>
+        </div>
+        <div>
+            <a href="cargarAlumno.html">Carga de Alumno</a>
+        </div>
+        <div>
+            <a href="formularioProgramaRegistro.jsp">Carga de Programa</a>
+        </div>
+        <div>
+            <a href="formularioExamenRegistro.jsp">Carga de examenes</a>
+        </div>
+
+        <h1>Listados</h1>
+        <hr>
+        <div>
+            <a href="listarCursos">Listado de curso</a>
+        </div>
+        <div>
+            <a href="listarAlumnos">Listado de alumnos</a>
+        </div>
+        <div>
+            <a href="listarProgramasHabilitados">Listado de programas</a>
+        </div>
+        
+        <h1>Reportes</h1>
+        <hr>
+        <div>
+            <a href="reporteAlumnosCurso.jsp">Reporte de alumnos por cursos</a>
+        </div>
+        <div>
+            <a href="listarDesaprobados">Listado de desaprobados</a>
+        </div>
+        <div>
+            <a href="reporteAlumnosDescuentos">Listado de alumnos con descuentos</a>
+        </div>
+    </body>
+</html>

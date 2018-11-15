@@ -1,0 +1,88 @@
+td {
+    border: 1px black solid;
+}
+
+th {
+    border: 1px black solid;
+}
+
+.noti {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+/*Para el jsp header. Es la navbar*/
+/* Navbar container */
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+}
+
+/* Links dentro del navbar */
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Para la clase dropdown que se les da a los divs de dentro del navbar */
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+/* Boton dropwdown */
+.dropdown .dropbtn {
+    font-size: 16px; 
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+}
+
+/* Muestra en rojo el elemento que tenga hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+/* Contenido del dropdown que esta oculto por defecto */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links dentro del dropdown */
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Muestra en gris el elemento que tenga hover dentro del dropdown*/
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* dropdown con hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
