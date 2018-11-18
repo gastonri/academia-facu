@@ -55,6 +55,9 @@
                             <a class="dropdown-item" href="formularioProgramaRegistro.jsp">Cargar programa</a>
                         </div>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="formularioExamenRegistro.jsp">Cargar exámen <span class="sr-only">(current)</span></a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Reportes
@@ -63,10 +66,11 @@
                             <a class="dropdown-item" href="reporteAlumnosCurso.jsp">Alumnos por curso</a>
                             <a class="dropdown-item" href="listarDesaprobados">Alumnos desaprobados</a>
                             <a class="dropdown-item" href="reporteAlumnosDescuentos">Alumnos con descuento</a>
+                            <a class="dropdown-item" href="reportePromedio.jsp">Promedio de alumno</a>
                         </div>
                     </li>
                 </ul>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav pl-4">
                     <div class="row">
                         <li class="nav-item active">
                             <a class="btn btn-danger" href="logoutServlet">Logout</a>

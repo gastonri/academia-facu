@@ -48,7 +48,6 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="listarCursos">Listado de cursos</a>
-                                <a class="dropdown-item" href="cargarCurso.jsp">Cargar curso</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -101,21 +100,46 @@
             </div>
         </nav>
 
-        <div id="hero-bg" class="home-hero" style="background-image: url(&quot;//sc.acamica.com/img/1j7w9h/home-hero/bg4.jpg&quot;); padding: 40px 0 180px 0"> 
-            <div class="home-hero__shadow"></div> 
-            <div class="mw">
-                <div class="home-hero__content-wrapper"> 
-                    <div class="home-hero__content"> 
-                        <a href="" class="home-hero__logo--mobile">
+        <div id="hero-bg" style="background-image: url(&quot;//sc.acamica.com/img/1j7w9h/home-hero/bg4.jpg&quot;); padding: 40px 0 180px 0"> 
+            <div></div> 
+            <div>
+                <div> 
+                    <div> 
+                        <a>
                             <img src="//sc.acamica.com/m238n7g2e/img/iso-white.svg" alt="Isotipo de Acámica">
-                        </a>
-                        <a href="/" class="home-hero__logo--pc">
+                            </hrefa>
                         </a> 
-                        <h1 class="home-hero__title" style="color: white;">Pasión por aprender</h1> 
-                        <p class="home-hero__description" style="color: white;">Vení y aprende.</p>
+                        <h1 style="color: white;">Pasión por aprender</h1> 
+                        <p style="color: white;">Vení y aprende.</p>
                     </div>
                 </div> 
             </div> 
         </div>
+        <div class="row">
+            <div class="col-md-5" style="display: block; margin: 15px auto;">
+                <h3>Aprende haciendo</h3>
+                <p>
+                    Trabaja en proyectos de situaciones reales, aprendiendo de una manera práctica y relevante.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5" style="display: block; margin: 15px auto;">
+                <h3>Con la mentoría de expertos</h3>
+                <p>
+                    Vive una experiencia personalizada en grupos reducidos, acompañado de profesionales de la comunidad tecnológica.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5" style="display: block; margin: 15px auto;">
+                <h3>En espacios innovadores</h3>
+                <p>
+                    Elige una de nuestras sedes en oficinas de tecnología o cursa a distancia estés donde estés.
+                </p>
+            </div>
+        </div>
+
+        <p style="color: gray;">Textos e imagen de index.jsp tomados de acamica.com</p>
     </body>
 </html>

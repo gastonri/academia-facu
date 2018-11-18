@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Gaston/Desktop/UTN/academia-facu/web/cargarAlumno.jsp</file>
-            <file>file:/C:/Users/Gaston/Desktop/UTN/academia-facu/web/formularioAlumnoModificacion.jsp</file>
-            <file>file:/C:/Users/Gaston/Desktop/UTN/academia-facu/web/reporteAlumnosCurso.jsp</file>
+            <file>file:/C:/Users/Gaston/Desktop/UTN/academia-facu/src/java/servlets/CargarCursoServlet.java</file>
+            <file>file:/C:/Users/Gaston/Desktop/UTN/academia-facu/web/reporteAlumnosDesaprobados.jsp</file>
+            <file>file:/C:/Users/Gaston/Desktop/UTN/academia-facu/web/index.jsp</file>
+            <file>file:/C:/Users/Gaston/Desktop/UTN/academia-facu/src/java/controladores/ExamenController.java</file>
+            <file>file:/C:/Users/Gaston/Desktop/UTN/academia-facu/src/java/servlets/ListarDesaprobadosServlet.java</file>
+            <file>file:/C:/Users/Gaston/Desktop/UTN/academia-facu/web/listadoCurso.jsp</file>
         </group>
     </open-files>
 </project-private>

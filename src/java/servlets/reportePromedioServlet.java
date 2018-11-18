@@ -6,21 +6,23 @@
 package servlets;
 
 import controladores.AlumnoController;
+import controladores.ExamenController;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.Alumno;
 
 /**
  *
  * @author Gaston
  */
-@WebServlet(name = "EditarAlumnoServlet", urlPatterns = {"/editarAlumno"})
-public class EditarAlumnoServlet extends HttpServlet {
+@WebServlet(name = "reportePromedioServlet", urlPatterns = {"/reportePromedioServlet"})
+public class reportePromedioServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,16 +51,6 @@ public class EditarAlumnoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        String idAlumno = request.getParameter("id");
-        int id = Integer.parseInt(idAlumno);
-        AlumnoController alumnoCont = new AlumnoController();
-        request.setAttribute("alumnoEditar", alumnoCont.consultarAlumnoPorId(id));
-        RequestDispatcher rd = request.getRequestDispatcher("formularioAlumnoModificacion.jsp");
-        try {
-            rd.forward(request, response);
-        } catch (ServletException | IOException ex) {
-            System.out.println("Pasó algo");
-        }
     }
 
     /**
@@ -73,30 +65,14 @@ public class EditarAlumnoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        int id = Integer.parseInt(request.getParameter("id"));
-        int legajo = Integer.parseInt(request.getParameter("legajo"));
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String dni = request.getParameter("dni");
-        String direccion = request.getParameter("direccion");
-        String telefono = request.getParameter("telefono");
-        String email = request.getParameter("mail");
+        int id = Integer.parseInt(request.getParameter("idAlumno"));
+        ExamenController con = new ExamenController();
+        Float promedio = con.consultarPromedio(id);
+        request.setAttribute("promedio", promedio);
 
-        Alumno al = new Alumno(id, legajo, nombre, apellido, dni, direccion, telefono, email);
-
-        AlumnoController con = new AlumnoController();
-        boolean inserto = con.modificarAlumno(al);
-        String redirect = "";
-        if (inserto) {
-            redirect = "listarAlumnos";
-        } else {
-            redirect = "error.jsp";
-        }
-        try {
-            response.sendRedirect(redirect);
-        } catch (IOException ex) {
-            System.out.println("Pasó algo");
-        }
+        // Ahora la jsp
+        RequestDispatcher vista = getServletContext().getRequestDispatcher("/reportePromedio.jsp");
+        vista.forward(request, response);
     }
 
     /**

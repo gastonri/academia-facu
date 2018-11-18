@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Alta y modificación de curso</title>
-        <script src="cargarAlumno.js" type="text/javascript"></script>
+        <script src="validarForms.js" type="text/javascript"></script>
     </head>
     <body>
         <% Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");%>
@@ -25,7 +25,7 @@
                 <legend class="display-6">
                     Formulario de ingreso de alumno:
                 </legend>
-                <form class="form-horizontal" name="cargarAlumno" method="POST" action="cargarAlumno">
+                <form class="form-horizontal" name="cargarAlumno" method="POST" action="cargarAlumno" onchange="validarForm()" onsubmit="return validarForm()">
                     <div class="row pb-3 inline-block">
                         <div class="col-md-2">
                             <input class="form-control" type="text" id="nombreAlumno" name="nombreAlumno" placeholder="Nombre"/>
@@ -36,10 +36,7 @@
                     </div>
                     <div class="row pb-3 inline-block">
                         <div class="col-md-2">
-                            <input class="form-control" type="number" id="legajoAlumno" name="legajoAlumno" min="1" placeholder="Legajo" />
-                            <!--                        <div class="noti" id="notiLegajo" style="display: none;">
-                                                        El número de legajo no puede ser menor que 1 ni mayor que 10 y debe ser un número entero.
-                                                    </div>-->
+                            <input class="form-control" type="number" id="legajoAlumno" name="legajoAlumno" min="1" max="99999999" placeholder="Legajo" />
                         </div>
                         <div class="col-md-2">
                             <input class="form-control" type="number" id="dniAlumno" name="dniAlumno" min="1000000" max="99999999" placeholder="Dni"/>
@@ -61,9 +58,6 @@
                     <div class="row pb-3 inline-block">
                         <div class="col-md-1">
                             <input type="submit" id="guardar" class="btn btn-primary" value="Guardar" />
-                        </div>
-                        <div class="col-md-1">
-                            <input type="button" id="guardar" class="btn btn-danger" value="Limpiar" />
                         </div>
                     </div>
                 </form>

@@ -66,6 +66,7 @@ public class ExamenController {
         return inserto;
     }
 
+    // Para descuento
     public float consultarPromedioAlumno(int id) {
         float descuento = 0;
         try {
@@ -93,6 +94,30 @@ public class ExamenController {
         return descuento;
     }
 
+        public float consultarPromedio(int id) {
+        float promedio = 0;
+        try {
+            con.abrirConexion();
+            Statement st = con.con.createStatement();
+            PreparedStatement decla = con.con.prepareStatement("select avg(ex.nota) from Examen ex where ex.idAlumno = ?");
+            decla.setInt(1, id);
+            ResultSet rs = decla.executeQuery();
+            if (rs.next()) {
+                promedio = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                con.cerrarConexion();
+            } catch (Exception e) {
+                System.out.println("Error en el cierre de la conexion:" + e.getMessage());
+            }
+        }
+        return promedio;
+    }
+
+    
     public ArrayList<DtoExamen> obtenerExamenesDesaprobados() {
         ArrayList<DtoExamen> lista = new ArrayList();
         try {

@@ -5,19 +5,15 @@
  */
 function validarForm() {
     for (var i = 0; i < document.forms[0].length; i++) {
-        console.log(document.forms[0].elements[i]);
         switch (document.forms[0].elements[i].tagName) {
             case 'INPUT':
                 if (document.forms[0].elements[i].value === '' || document.forms[0].elements[i].value === 0) {
                     document.forms[0].elements[i].setAttribute('class', 'form-control is-invalid');
-                    console.log('no tiene nada')
                     return false;
                 } else {
                     switch (document.forms[0].elements[i].type) {
                         case 'number':
-                            if (document.forms[0].elements[i].min > document.forms[0].elements[i].value || document.forms[0].elements[i].max < document.forms[0].elements[i].value) {
-                                console.log(document.forms[0].elements[i].min > document.forms[0].elements[i].value);
-                                console.log(document.forms[0].elements[i].max < document.forms[0].elements[i].value);
+                            if (parseInt(document.forms[0].elements[i].min) > parseInt(document.forms[0].elements[i].value) || parseInt(document.forms[0].elements[i].max) < parseInt(document.forms[0].elements[i].value)) {
                                 document.forms[0].elements[i].setAttribute('class', 'form-control is-invalid');
                                 return false;
                             } else {

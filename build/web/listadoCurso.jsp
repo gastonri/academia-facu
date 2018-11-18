@@ -26,7 +26,7 @@
         <div class="row-fluid">
             <form class="form-horizontal" method="POST" action="cargarCurso" onchange="validarForm()" onsubmit="return validarForm()">
                 <div class="row pb-3 inline-block">
-                    <div class="col-md-2">
+<!--                    <div class="col-md-2">
                         <input class="form-control" type="number" id="idCurso" min="1" max="999999" name="idCurso" placeholder="Id" />
                         <div id="idCursoValid"class="valid-feedback">
                             Correcto!
@@ -34,7 +34,7 @@
                         <div id="idCursoInvalid"class="invalid-feedback">
                             Por favor complete el campo con un id válido.
                         </div>
-                    </div>
+                    </div>-->
                     <div>
                         <input class="form-control" type="text" id="descripcionCurso" name="descripcionCurso" placeholder="Descripción"/>
                         <div id="descripcionCursoValid"class="valid-feedback">
