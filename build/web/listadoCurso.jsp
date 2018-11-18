@@ -4,6 +4,7 @@
     Author     : Gaston
 --%>
 
+<%@page import="modelos.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="header.jsp" %>
@@ -16,8 +17,11 @@
         <script src="validarForms.js" type="text/javascript"></script>
     </head>
     <body>
+        <% Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");%>
+        <c:if test="${usuario == null}">
+            <c:redirect url="index.jsp"></c:redirect>
+        </c:if>
     <legend class="display-6">Carga de curso:</legend>
-
     <div class="container-fluid" style="margin-left: 30%;">
         <div class="row-fluid">
             <form class="form-horizontal" method="POST" action="cargarCurso" onchange="validarForm()" onsubmit="return validarForm()">

@@ -91,7 +91,9 @@ public class EditarAlumnoServlet extends HttpServlet {
 //        RequestDispatcher rd = request.getRequestDispatcher("");
         String redirect = "";
         if (inserto) {
-            redirect = "listarAlumnos";
+//            redirect = "listarAlumnos";
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("listarAlumnos");
+            rd.forward(request, response);
         } else {
             redirect = "error.jsp";
         }

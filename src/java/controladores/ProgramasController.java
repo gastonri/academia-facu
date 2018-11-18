@@ -79,6 +79,37 @@ public class ProgramasController {
         return programas;
     }
 
+    public ArrayList<DtoPrograma> consultarProgramas() {
+        ArrayList<DtoPrograma> programas = new ArrayList();
+        try {
+            con.abrirConexion();
+            Statement st = con.con.createStatement();
+            ResultSet rs = st.executeQuery("select p.id, idAlumno, a.nombre, a.apellido, p.nombre, tp.nombre\n"
+                    + "from Programa p, alumno a, TipoPrograma tp\n"
+                    + "where p.idAlumno = a.id\n"
+                    + "and p.idTipo = tp.id\n;");
+            while (rs.next()) {
+                DtoPrograma pr = new DtoPrograma();
+                pr.setId(rs.getInt(1));
+                pr.setIdAlumno(rs.getInt(2));
+                pr.setNombreAlumno(rs.getString(3));
+                pr.setApellidoAlumno(rs.getString(4));
+                pr.setNombre(rs.getString(5));
+                pr.setTipoPrograma(rs.getString(6));
+                programas.add(pr);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                con.cerrarConexion();
+            } catch (Exception e) {
+                System.out.println("Error en el cierre de la conexion:" + e.getMessage());
+            }
+        }
+        return programas;
+    }
+
     // Metodos para los tipos de programas
     public ArrayList<TipoPrograma> consultarTipoPrograma() {
         ArrayList<TipoPrograma> listadoTPrograma = new ArrayList();

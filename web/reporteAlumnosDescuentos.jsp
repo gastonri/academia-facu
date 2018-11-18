@@ -4,6 +4,7 @@
     Author     : Gaston
 --%>
 
+<%@page import="modelos.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="header.jsp" %>
@@ -14,6 +15,10 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <% Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");%>
+        <c:if test="${usuario == null}">
+            <c:redirect url="index.jsp"></c:redirect>
+        </c:if>
     <legend class="display-6">Reporte de alumnos con descuento</legend>
     <div>
         <table class="table table-striped table-bordered">

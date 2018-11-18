@@ -53,7 +53,6 @@ public class ListarAlumnosServlet extends HttpServlet {
         ArrayList lista = con.consultarAlumnos();
         request.setAttribute("lista", lista);
 
-        // Ahora la jsp
         RequestDispatcher vista = getServletContext().getRequestDispatcher("/listadoAlumnos.jsp");
         vista.forward(request, response);
     }

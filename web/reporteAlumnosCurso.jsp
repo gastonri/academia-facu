@@ -4,6 +4,7 @@
     Author     : Gaston
 --%>
 
+<%@page import="modelos.Usuario"%>
 <%@page import="modelos.Curso"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="controladores.CursoController"%>
@@ -17,6 +18,10 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <% Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");%>
+        <c:if test="${usuario == null}">
+            <c:redirect url="index.jsp"></c:redirect>
+        </c:if>
     <legend class="display-6">Reporte de alumnos por curso</legend>
     <div class="container-fluid" style="margin-left: 30%;">
         <div class="row-fluid">

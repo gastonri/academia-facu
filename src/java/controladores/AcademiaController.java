@@ -20,16 +20,17 @@ public class AcademiaController {
 
     Conexion con = new Conexion();
 
-    public String login(Usuario us) {
-        String usuario = "";
+    public Usuario login(Usuario us) {
+        Usuario usuario = new Usuario();
         try {
             con.abrirConexion();
-            PreparedStatement decla = con.con.prepareStatement("select usuario from curso where nombreUsuario = ? and contrasenia = ?");
+            PreparedStatement decla = con.con.prepareStatement("select nombreUsuario, contrasenia from usuario where nombreUsuario = ? and contrasenia = ?");
             decla.setString(1, us.getUsuario());
             decla.setString(2, us.getContrasenia());
             ResultSet rs = decla.executeQuery();
             if (rs.next()) {
-                usuario = rs.getString(1);
+                usuario.setUsuario(rs.getString(1));
+                usuario.setContrasenia(rs.getString(2));
             }
         } catch (SQLException e) {
         } finally {

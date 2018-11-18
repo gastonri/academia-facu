@@ -5,9 +5,8 @@
  */
 package servlets;
 
-import controladores.ProgramasController;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Gaston
  */
-@WebServlet(name = "ListarProgramas", urlPatterns = {"/listarProgramas"})
-public class ListarProgramasHabilitados extends HttpServlet {
+@WebServlet(name = "LogoutServlet", urlPatterns = {"/logoutServlet"})
+public class LogoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,6 +33,10 @@ public class ListarProgramasHabilitados extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.getSession().setAttribute("usuario", null);
+
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -49,12 +52,6 @@ public class ListarProgramasHabilitados extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        ProgramasController con = new ProgramasController();
-        ArrayList lista = con.consultarProgramas();
-        request.setAttribute("lista", lista);
-
-        RequestDispatcher vista = getServletContext().getRequestDispatcher("/listadoProgramas.jsp");
-        vista.forward(request, response);
     }
 
     /**

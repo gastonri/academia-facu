@@ -4,12 +4,14 @@
     Author     : Gaston
 --%>
 
+<%@page import="modelos.Usuario"%>
 <%@page import="modelos.Curso"%>
 <%@page import="controladores.CursoController"%>
 <%@page import="modelos.Alumno"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="controladores.AlumnoController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -19,6 +21,10 @@
         <script src="validarForms.js" type="text/javascript"></script>
     </head>
     <body>
+        <% Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");%>
+        <c:if test="${usuario == null}">
+            <c:redirect url="index.jsp"></c:redirect>
+        </c:if>
         <div class="container-fluid">
             <div class="row-fluid">
                 <div style="margin-left: 40%; margin-right: auto">

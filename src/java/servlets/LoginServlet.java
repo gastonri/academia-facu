@@ -5,22 +5,22 @@
  */
 package servlets;
 
-import controladores.ProgramasController;
+import controladores.AcademiaController;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Usuario;
 
 /**
  *
  * @author Gaston
  */
-@WebServlet(name = "ListarProgramas", urlPatterns = {"/listarProgramas"})
-public class ListarProgramasHabilitados extends HttpServlet {
+@WebServlet(name = "LoginServlet", urlPatterns = {"/loginServlet"})
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,7 +33,6 @@ public class ListarProgramasHabilitados extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -48,13 +47,6 @@ public class ListarProgramasHabilitados extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-        ProgramasController con = new ProgramasController();
-        ArrayList lista = con.consultarProgramas();
-        request.setAttribute("lista", lista);
-
-        RequestDispatcher vista = getServletContext().getRequestDispatcher("/listadoProgramas.jsp");
-        vista.forward(request, response);
     }
 
     /**
@@ -68,7 +60,21 @@ public class ListarProgramasHabilitados extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String us = request.getParameter("usuario");
+        String password = request.getParameter("password");
+        Usuario usu = new Usuario(us, password);
+
+        AcademiaController ac = new AcademiaController();
+        Usuario usuario = ac.login(usu);
+
+        if (usuario != null) {
+            request.getSession().setAttribute("usuario", usuario);
+        } else {
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
+        }
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/cargarAlumno.jsp");
+        rd.forward(request, response);
     }
 
     /**

@@ -3,12 +3,14 @@
     Created on : 10/11/2018, 15:08:32
     Author     : Gaston
 --%>
+<%@page import="modelos.Usuario"%>
 <%@page import="modelos.Alumno"%>
 <%@page import="controladores.AlumnoController"%>
 <%@page import="modelos.TipoPrograma"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="controladores.ProgramasController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="header.jsp" %>
 
 <!DOCTYPE html>
@@ -21,7 +23,11 @@
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <script src="validarForms.js" type="text/javascript"></script>
     </head>
-    <body>        
+    <body> 
+        <% Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");%>
+        <c:if test="${usuario == null}">
+            <c:redirect url="index.jsp"></c:redirect>
+        </c:if>
         <div class="container-fluid" style="margin-left: 30%;">
             <div class="row-fluid">
                 <legend class="display-6">
