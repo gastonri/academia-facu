@@ -13,19 +13,32 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listado de cursos</title>
         <link href="style.css" rel="stylesheet" type="text/css"/>
+        <script src="validarForms.js" type="text/javascript"></script>
     </head>
     <body>
     <legend class="display-6">Carga de curso:</legend>
 
     <div class="container-fluid" style="margin-left: 30%;">
         <div class="row-fluid">
-            <form class="form-horizontal" method="POST" action="cargarCurso">
+            <form class="form-horizontal" method="POST" action="cargarCurso" onchange="validarForm()" onsubmit="return validarForm()">
                 <div class="row pb-3 inline-block">
                     <div class="col-md-2">
-                        <input class="form-control" type="number" id="idCurso" name="idCurso" placeholder="Id"/>
+                        <input class="form-control" type="number" id="idCurso" min="1" max="999999" name="idCurso" placeholder="Id" />
+                        <div id="idCursoValid"class="valid-feedback">
+                            Correcto!
+                        </div>
+                        <div id="idCursoInvalid"class="invalid-feedback">
+                            Por favor complete el campo con un id válido.
+                        </div>
                     </div>
                     <div>
                         <input class="form-control" type="text" id="descripcionCurso" name="descripcionCurso" placeholder="Descripción"/>
+                        <div id="descripcionCursoValid"class="valid-feedback">
+                            Correcto!
+                        </div>
+                        <div id="descripcionCursoInvalid"class="invalid-feedback">
+                            Por favor complete el nombre del curso.
+                        </div>
                     </div>
                     <div style="padding-left: 15px;">
                         <button class="btn btn-primary" type="submit">Guardar</button>

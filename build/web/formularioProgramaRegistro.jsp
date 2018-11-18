@@ -3,6 +3,8 @@
     Created on : 10/11/2018, 15:08:32
     Author     : Gaston
 --%>
+<%@page import="modelos.Alumno"%>
+<%@page import="controladores.AlumnoController"%>
 <%@page import="modelos.TipoPrograma"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="controladores.ProgramasController"%>
@@ -17,41 +19,93 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="style.css" rel="stylesheet" type="text/css"/>
+        <script src="validarForms.js" type="text/javascript"></script>
     </head>
-    <body>
-        <form method="POST" action="guardarPrograma.jsp">
-            <div>
-                <label>Id del Alumno:</label>
-                <input type="number" id="idAlumno" name="idAlumno"/>
+    <body>        
+        <div class="container-fluid" style="margin-left: 30%;">
+            <div class="row-fluid">
+                <legend class="display-6">
+                    Carga de programas:
+                </legend>
+
+                <form class="form-horizontal" method="POST" action="guardarPrograma.jsp" onchange="validarForm()" onsubmit="return validarForm()">
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Alumno:</label>
+                        <div class="col-md-3">
+                            <select class="form-control" id="idAlumno" name="idAlumno">
+                                <option value="">Seleccione</option>
+                                <%
+                                    AlumnoController conAl = new AlumnoController();
+                                    ArrayList alumnos = conAl.consultarAlumnos();
+                                    for (Object alumn : alumnos) {
+                                        Alumno al = (Alumno) alumn;
+                                %>                    
+                                <option value="<%= al.getId()%>"><%= al.getApellido()%>, <%= al.getNombre()%></option>
+                                <% }%>
+                            </select>
+                            <div id="idAlumnoValid"class="valid-feedback">
+                                Correcto!
+                            </div>
+                            <div id="idAlumnooInvalid"class="invalid-feedback">
+                                Por favor seleccione un alumno.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Nombre del programa:</label>
+                        <div class="col-md-3">
+                            <input class="form-control" type="text" id="nombrePrograma" name="nombrePrograma"/>
+                            <div id="nombreProgramaValid"class="valid-feedback">
+                                Correcto!
+                            </div>
+                            <div id="nombreProgramaInvalid"class="invalid-feedback">
+                                Por favor ingrese el nombre del programa.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Id tipo del programa:</label>
+                        <div class="col-md-3">
+                            <select class="form-control" id="idTipoProg" name="idTipoProg">
+                                <option value="">Seleccione</option>
+                                <%
+                                    ProgramasController con = new ProgramasController();
+                                    ArrayList tiposProg = con.consultarTipoPrograma();
+                                    for (Object tipoProg : tiposProg) {
+                                        TipoPrograma tp = (TipoPrograma) tipoProg;
+                                %>                    
+                                <option value="<%= tp.getId()%>"><%= tp.getNombre()%></option>
+                                <% }%>
+                            </select>
+                            <div id="idTipoProgValid"class="valid-feedback">
+                                Correcto!
+                            </div>
+                            <div id="idTipoProgInvalid"class="invalid-feedback">
+                                Por favor seleccione el tipo de programa.
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Habilitado para la descarga:</label>
+                        <div class="col-md-3">
+                            <select class="form-control" id="estaHabilitado" name="estaHabilitado">
+                                <option value="true">Si</option>
+                                <option value="false">No</option>
+                            </select>
+                            <div id="estaHabilitadoValid"class="valid-feedback">
+                                Correcto!
+                            </div>
+                            <div id="estaHabilitadoInvalid"class="invalid-feedback">
+                                Por favor informe si el programa puede ser descargado.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type="submit">Guardar</button>
+                    </div>
+                </form>
             </div>
-            <div>
-                <label>Nombre del programa:</label>
-                <input type="text" id="nombrePrograma" name="nombrePrograma"/>
-            </div>
-            <div>
-                <label>Id tipo del programa:</label>
-                <select id="idTipoProg" name="idTipoProg">
-                    <option>Seleccione</option>
-                    <%
-                        ProgramasController con = new ProgramasController();
-                        ArrayList tiposProg = con.consultarTipoPrograma();
-                        for (Object tipoProg : tiposProg) {
-                            TipoPrograma tp = (TipoPrograma) tipoProg;
-                    %>                    
-                    <option value="<%= tp.getId()%>"><%= tp.getNombre()%></option>
-                    <% }%>
-                </select>
-            </div>
-            <div>
-                <label>Habilitado para la descarga:</label>
-                <select id="estaHabilitado" name="estaHabilitado">
-                    <option value="true">Si</option>
-                    <option value="false">No</option>
-                </select>
-            </div>
-            <div>
-                <input type="submit" value="Guardar" />
-            </div>
-        </form>
+        </div>
     </body>
 </html>

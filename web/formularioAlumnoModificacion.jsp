@@ -13,54 +13,110 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Modificar alumno</title>
         <link href="style.css" rel="stylesheet" type="text/css"/>
+        <script src="validarForms.js" type="text/javascript"></script>
     </head>
     <body>
-        <h1>Modificar alumno</h1>
-        <div style="width: 900px; margin-left: auto; margin-right: auto">
-            <c:forEach items="${alumnoEditar}" var="a">
-                <form action="editarAlumno" method="post">
-                    <div>
-                        <label>Id del alumno: ${a.id}</label>
-                        <input type="hidden" name="id" value="${a.id}" />
-                    </div>
-                    <div>
-                        <label>Legajo:</label>
-                        <input type="text" value="${a.legajo}" name="legajo" />
-                    </div>
-                    <div>
-                        <label>Nombre:</label>
-                        <input type="text" value="${a.nombre}" name="nombre" />
-                    </div>
-                    <div>
-                        <label>Apellido:</label>
-                        <input type="text" value="${a.apellido}" name="apellido" />
-                    </div>
-                    <div>
-                        <label>DNI:</label>
-                        <input type="text" value="${a.dni}" name="dni" />
-                    </div>
-                    <div>
-                        <label>Dirección:</label>
-                        <input type="text" value="${a.direccion}" name="direccion" />
-                    </div>
-                    <div>
-                        <label>Teléfono:</label>
-                        <input type="text" value="${a.telefono}" name="telefono" />
-                    </div>
-                    <div>
-                        <label>Email:</label>
-                        <input type="text" value="${a.mail}" name="mail" />
-                    </div>
-                    <div>
-                        <input type="submit" value="Guardar" />
-                    </div>
-                </form>
-            </c:forEach>
-            <%--<c:choose>--%>
-                <%--<c:when test=request.getAttribute("comprobacion")>--%>
-            <!--<p>El alumno se modificó correctamente</p>-->
-            <!--<p>Ocurrió un fallo en la modificación del alumno</p>-->
-            <%--</c:choose>--%>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div style="margin-left: 40%; margin-right: auto">
+                    <legend class="display-6">Modificar alumno</legend>
+                    <c:forEach items="${alumnoEditar}" var="a">
+                        <form class="form-horizontal" action="editarAlumno" method="post" id="editarAlumno" onchange="validarForm()" onsubmit="return validarForm()" >
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label" for="nombreAlumno">Nombre del alumno</label>
+                                <div class="col-md-3">
+                                    <input class="form-control" type="text" id="nombreAlumno" name="nombre" placeholder="Nombre" value="${a.nombre}" />
+                                    <div id="apellidoAlumnoValid"class="valid-feedback">
+                                        Correcto!
+                                    </div>
+                                    <div id="apellidoAlumnoInvalid"class="invalid-feedback">
+                                        Por favor complete el nombre del alumno.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label" for="apellidoAlumno">Apellido del alumno</label>
+                                <div class="col-md-3">
+                                    <input class="form-control" type="text" id="apellidoAlumno" name="apellido" placeholder="Apellido" value="${a.apellido}" />
+                                    <div id="apellidoAlumnoValid"class="valid-feedback">
+                                        Correcto!
+                                    </div>
+                                    <div id="apellidoAlumnoInvalid"class="invalid-feedback">
+                                        Por favor complete el apellido del alumno.
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="hidden" name="id" value="${a.id}" />
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label" for="legajo">Legajo</label>
+                                <div class="col-md-3">
+                                    <input class="form-control" type="number" value="${a.legajo}" name="legajo" id="legajo" min="1" max="9999999999"/>
+                                    <div id="apellidoAlumnoValid"class="valid-feedback">
+                                        Correcto!
+                                    </div>
+                                    <div id="apellidoAlumnoInvalid"class="invalid-feedback">
+                                        Por favor ingrese el legajo del alumno.
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label" for="dni">Dni</label>
+                                <div class="col-md-3">
+                                    <input class="form-control" type="number" value="${a.dni}" min="1000000" max="99999999" name="dni" id="dni"/>
+                                    <div id="apellidoAlumnoValid"class="valid-feedback">
+                                        Correcto!
+                                    </div>
+                                    <div id="apellidoAlumnoInvalid"class="invalid-feedback">
+                                        Por favor complete el DNI del alumno considerando que sea un número valido.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label" for="direccion">Dirección</label>
+                                <div class="col-md-3">
+                                    <input class="form-control" type="text" value="${a.direccion}" name="direccion" id="direccion"/>
+                                    <div id="apellidoAlumnoValid"class="valid-feedback">
+                                        Correcto!
+                                    </div>
+                                    <div id="apellidoAlumnoInvalid"class="invalid-feedback">
+                                        Por favor complete la dirección del alumno.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label" for="telefono">Teléfono</label>
+                                <div class="col-md-3">
+                                    <input  class="form-control" type="number" value="${a.telefono}" name="telefono" id="telefono" min="1000000" max="9999999999"/>
+                                    <div id="apellidoAlumnoValid"class="valid-feedback">
+                                        Correcto!
+                                    </div>
+                                    <div id="apellidoAlumnoInvalid"class="invalid-feedback">
+                                        Por favor complete el telefono del alumno.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label" for="direccion">Email</label>
+                                <div class="col-md-3">
+                                    <input class="form-control" type="email" value="${a.mail}" name="mail" id="mail" />
+                                    <div id="apellidoAlumnoValid"class="valid-feedback">
+                                        Correcto!
+                                    </div>
+                                    <div id="apellidoAlumnoInvalid"class="invalid-feedback">
+                                        Por favor complete el email del alumno.
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+                        </form>
+                    </c:forEach>
+                </div>
+            </div>
         </div>
     </body>
 </html>

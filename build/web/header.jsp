@@ -43,8 +43,7 @@
                             Gestión de cursos
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="listarCursos">Listado de cursos</a>
-                            <a class="dropdown-item" href="cargarCurso.jsp">Cargar curso</a>
+                            <a class="dropdown-item" href="listarCursos">Listado y carga de cursos</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">

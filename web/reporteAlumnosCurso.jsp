@@ -18,23 +18,32 @@
     </head>
     <body>
     <legend class="display-6">Reporte de alumnos por curso</legend>
-    <div>
-        <form name="cursoSeleccionado" method="post" action="listarCursos">
-            <div>
-                <select name="idCursoSelect">
-                    <option>Seleccione</option>
-                    <%
-                        CursoController conCur = new CursoController();
-                        ArrayList cursos = conCur.consultarCursos();
-                        for (Object curso : cursos) {
-                            Curso cur = (Curso) curso;
-                    %>                    
-                    <option value="<%= cur.getId()%>"><%= cur.getDescripcion()%></option>
-                    <% }%>
-                </select>
-            </div>
-            <input type="submit" value="Consultar"/>
-        </form>
+    <div class="container-fluid" style="margin-left: 30%;">
+        <div class="row-fluid">
+            <form class="form-horizontal" name="cursoSeleccionado" method="post" action="listarCursos">
+                <div class="row pb-3 inline-block">
+                    <div class="col-md-1">
+                        <label class="label">Curso:</label>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control" name="idCursoSelect">
+                            <option>Seleccione</option>
+                            <%
+                                CursoController conCur = new CursoController();
+                                ArrayList cursos = conCur.consultarCursos();
+                                for (Object curso : cursos) {
+                                    Curso cur = (Curso) curso;
+                            %>                    
+                            <option value="<%= cur.getId()%>"><%= cur.getDescripcion()%></option>
+                            <% }%>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" type="submit">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
     <div>
         <table class="table table-striped table-bordered">

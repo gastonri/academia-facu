@@ -19,7 +19,7 @@
                 <legend class="display-6">
                     Formulario de ingreso de alumno:
                 </legend>
-                <form  class="form-horizontal" name="cargarAlumno" method="POST" action="cargarAlumno">
+                <form class="form-horizontal" name="cargarAlumno" method="POST" action="cargarAlumno">
                     <div class="row pb-3 inline-block">
                         <div class="col-md-2">
                             <input class="form-control" type="text" id="nombreAlumno" name="nombreAlumno" placeholder="Nombre"/>

@@ -16,9 +16,6 @@
     <body>    
     <legend class="display-6">Listado de alumnos</legend>
     <div>
-        <a href="cargarAlumno.jsp">Carga de alumno</a>
-    </div>
-    <div>
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>

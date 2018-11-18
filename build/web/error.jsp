@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Fallo!</h1>
+        <h1>Ocurrió un error al intentar guardar la información.</h1>
     </body>
 </html>

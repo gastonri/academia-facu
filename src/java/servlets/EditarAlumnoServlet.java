@@ -88,15 +88,16 @@ public class EditarAlumnoServlet extends HttpServlet {
         AlumnoController con = new AlumnoController();
         boolean inserto = con.modificarAlumno(al);
 //        request.setAttribute("comprobacion", inserto);
-        RequestDispatcher rd = request.getRequestDispatcher("");
+//        RequestDispatcher rd = request.getRequestDispatcher("");
+        String redirect = "";
         if (inserto) {
-            rd = request.getRequestDispatcher("listarAlumnos");
+            redirect = "listarAlumnos";
         } else {
-            rd = request.getRequestDispatcher("error.jsp");
+            redirect = "error.jsp";
         }
         try {
-            rd.forward(request, response);
-        } catch (ServletException | IOException ex) {
+            response.sendRedirect(redirect);
+        } catch (IOException ex) {
             System.out.println("Pasó algo");
         }
     }
